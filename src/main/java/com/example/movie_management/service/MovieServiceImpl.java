@@ -21,12 +21,14 @@ public class MovieServiceImpl implements MovieService {
     @Override
     @CachePut(value = "movies", key = "#movie.id")
     public Movie saveMovie(Movie movie) {
+        logger.info("Saving movie with id {} to database", movie.getId());
         return movieRepository.save(movie);
     }
 
     @Override
-    @Cacheable(value = "movies")
+    //@Cacheable(value = "movies")
     public List<Movie> getAllMovies() {
+        logger.info("Fetching all movies from database");
         return movieRepository.findAll();
     }
 
@@ -40,6 +42,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     @CacheEvict(value = "movies", key = "#id")
     public void deleteMovie(Long id) {
+        logger.info("Deleting movie with id {} from database", id);
         movieRepository.deleteById(id);
     }
 }

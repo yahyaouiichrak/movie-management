@@ -20,4 +20,5 @@ public class Movie {
     private String genre;
     @Column(name = "`year`") // Use backticks to escape the column name
     private int year;
+
 }
