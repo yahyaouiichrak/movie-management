@@ -1,17 +1,18 @@
 package com.example.movie_management.controller;
 
 import com.example.movie_management.model.Movie;
-import com.example.movie_management.repository.MovieRepository;
 import com.example.movie_management.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/movies")
 @RequiredArgsConstructor
 public class MovieController {
+
     @Autowired
     private MovieService movieService;
 
