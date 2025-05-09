@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+#movies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.movie {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+}
+
+.movie h2 {
+    margin-top: 0;
+    color: #555;
+}
+
+.movie p {
+    margin-bottom: 5px;
+}
