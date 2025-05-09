@@ -56,8 +56,12 @@ public class MovieController {
     public ResponseEntity<Movie> getMovieById(
             @Parameter(description = "ID of the movie to be retrieved") @PathVariable Long id) {
         Movie movie = movieService.getMovieById(id);
+        if (movie == null) {
+            return ResponseEntity.notFound().build();
+        }
         return ResponseEntity.ok(movie);
     }
+
 
     @Operation(summary = "Create a new movie", description = "Adds a new movie to the catalog")
     @ApiResponses(value = {

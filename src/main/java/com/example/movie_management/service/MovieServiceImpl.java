@@ -18,6 +18,10 @@ public class MovieServiceImpl implements MovieService {
     @Autowired
     private MovieRepository movieRepository;
 
+    public MovieServiceImpl(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
+
     @Override
     @CachePut(value = "movies", key = "#movie.id")
     public Movie saveMovie(Movie movie) {
@@ -38,6 +42,7 @@ public class MovieServiceImpl implements MovieService {
         logger.info("Fetching movie with id {} from database", id);
         return movieRepository.findById(id).orElse(null);
     }
+
 
     @Override
     @CacheEvict(value = "movies", key = "#id")
